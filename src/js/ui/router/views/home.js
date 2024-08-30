@@ -1,0 +1,1 @@
+alert("This is the root path. No JS behaviour has been defined for this page yet.")

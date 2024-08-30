@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="/src/app.js"></script>
+  </head>
+  <body>
+    <h1>Profile</h1>
+    <a id="email" href="mailto:"></a>
+    <a href="#update">Update Profile</a>
+    <img src="" alt="" id="avatar">
+    <img src="" alt="" id="banner">
+
+    <form id="update" name="updateProfile">
+      <input type="hidden" name="name">
+
+      <div>
+        <label for="avatar">Avatar</label>
+        <input type="url" name="avatar" id="avatar">
+        <input type="text" name="avatarAlt" placeholder="Avatar alt text">
+      </div>
+
+      <div>
+        <label for="banner">Banner</label>
+        <input type="url" name="banner" id="banner">
+        <input type="text" name="bannerAlt" placeholder="Banner alt text">
+      </div>
+
+      <button>Update Profile</button>
+    </form>
+  </body>
+</html>

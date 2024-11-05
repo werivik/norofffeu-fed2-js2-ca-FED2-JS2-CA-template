@@ -120,25 +120,30 @@ async function loadPosts() {
 
             return `
 
-                <div class="post" id="post-${post.id}" data-id="${post.id}">
-                    <div class="post-creater">
-                        <h3>${username}</h3>
-                    </div>
-                    <h2>${post.title}</h2>
-                    <p>${post.body}</p>
-                    <div class="post-media">
-                        ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" />` : ''}
-                    </div>
-                    <div class="post-tags">
-                        ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-                    </div>
-                    <div class="post-meta">
-                        <span>Created: ${new Date(post.created).toLocaleDateString()}</span>
-                        <span>Updated: ${new Date(post.updated).toLocaleDateString()}</span>
-                        <p>Comments: ${post._count.comments}</p>
-                        <p>Reactions: ${post._count.reactions}</p>
-                    </div>
-                </div>
+<div class="post bg-white p-6 rounded-lg shadow-md mb-6 cursor-pointer w-full" id="post-${post.id}" data-id="${post.id}">
+    <div class="post-creater mb-2">
+        <h3 class="text-lg font-semibold text-gray-800">${username}</h3>
+    </div>
+    <h2 class="text-2xl font-bold text-gray-900 mb-3">${post.title}</h2>
+    <p class="text-gray-700 mb-4">${post.body}</p>
+    <div class="post-media mb-4">
+        ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" class="w-full rounded-md object-contain max-h-96" />` : ''}
+    </div>
+    <div class="post-tags mb-4">
+        ${post.tags.map(tag => `<span class="tag bg-blue-100 text-blue-600 text-xs font-semibold px-2 py-1 rounded-full mr-2">${tag}</span>`).join(' ')}
+    </div>
+    <div class="post-meta text-sm text-gray-600 space-y-2">
+        <div class="flex items-center space-x-4">
+            <span>Created: ${new Date(post.created).toLocaleDateString()}</span>
+            <span>Updated: ${new Date(post.updated).toLocaleDateString()}</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <p>Comments: <span class="font-medium text-gray-800">${post._count.comments}</span></p>
+            <p>Reactions: <span class="font-medium text-gray-800">${post._count.reactions}</span></p>
+        </div>
+    </div>
+</div>
+
             `;
         }).join('');
 

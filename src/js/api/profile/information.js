@@ -211,21 +211,28 @@ document.addEventListener("DOMContentLoaded", () => {
             const postMedia = post.media ? `<img src="${post.media.url}" alt="${post.media.alt}">` : '';
             
             return `
-                <div class="post" data-id="${post.id}">
-                    <h3>${post.title}</h3>
-                    <p>${post.body}</p>
-                    ${postMedia}
-                    <p>Tags: ${post.tags.join(', ')}</p>
-                    <button class="edit-post-btn" data-id="${post.id}">Edit</button>
-                    <button class="delete-post-btn" data-id="${post.id}" data-title="${post.title}">Delete</button>
-                    <div class="edit-post-form" style="display:none;">
-                        <input type="text" class="edit-title" value="${post.title}" placeholder="New Title">
-                        <textarea class="edit-body" placeholder="New Body">${post.body}</textarea>
-                        <input type="text" class="edit-media" value="${post.media ? post.media.url : ''}" placeholder="New Media URL">
-                        <input type="text" class="edit-tags" value="${post.tags.join(', ')}" placeholder="New Tags (comma separated)">
-                        <button class="save-post-btn" data-id="${post.id}">Save Changes</button>
-                    </div>
-                </div>
+<div class="post bg-white p-4 rounded-lg shadow-md mb-4" data-id="${post.id}">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">${post.title}</h3>
+    <p class="text-gray-700 mb-4">${post.body}</p>
+    
+    ${postMedia}
+    
+    <p class="text-sm text-gray-600 mb-4">Tags: <span class="text-blue-500">${post.tags.join(', ')}</span></p>
+    
+    <div class="flex space-x-2 mb-4">
+        <button class="edit-post-btn bg-yellow-400 hover:bg-yellow-500 text-white px-4 py-1 rounded" data-id="${post.id}">Edit</button>
+        <button class="delete-post-btn bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded" data-id="${post.id}" data-title="${post.title}">Delete</button>
+    </div>
+
+    <div class="edit-post-form bg-gray-50 p-4 rounded-lg shadow-inner" style="display:none;">
+        <input type="text" class="edit-title w-full px-3 py-2 mb-2 border border-gray-300 rounded" value="${post.title}" placeholder="New Title">
+        <textarea class="edit-body w-full px-3 py-2 mb-2 border border-gray-300 rounded" placeholder="New Body">${post.body}</textarea>
+        <input type="text" class="edit-media w-full px-3 py-2 mb-2 border border-gray-300 rounded" value="${post.media ? post.media.url : ''}" placeholder="New Media URL">
+        <input type="text" class="edit-tags w-full px-3 py-2 mb-2 border border-gray-300 rounded" value="${post.tags.join(', ')}" placeholder="New Tags (comma separated)">
+        <button class="save-post-btn bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded w-full" data-id="${post.id}">Save Changes</button>
+    </div>
+</div>
+
             `;
         }).join('');
 

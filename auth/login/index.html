@@ -8,39 +8,37 @@
 
     <script type="module" src="/src/js/api/auth/login.js" defer></script>
 
-    <link rel="stylesheet" href="/src/css/style.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
 
-  <body>
+  <body class="flex items-center justify-center min-h-screen bg-gray-300">
 
-    <main>
-      <section>
+    <main class="flex flex-col items-center p-6 bg-gray-100 rounded shadow-md w-full max-w-xs">
+      <section class="flex flex-col w-full">
+        <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
 
-        <div class="loginform">
-          <h1>Login</h1>
-
-          <form id="loginForm">
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" required />
-            </div>
+        <form id="loginForm" class="flex flex-col space-y-4 w-full">
+          <div class="flex flex-col space-y-2">
+            <label for="email" class="text-gray-700">Email</label>
+            <input id="email" type="email" name="email" required class="px-3 py-2 border rounded w-full" />
+          </div>
       
-            <div>
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" required />
-            </div>
+          <div class="flex flex-col space-y-2">
+            <label for="password" class="text-gray-700">Password</label>
+            <input type="password" name="password" id="password" required class="px-3 py-2 border rounded w-full" />
+          </div>
       
-            <button>Login</button>
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 w-full">Login</button>
 
-            <a href="/auth/register/">Register</a>
-
-          </form>
-          
-        </div>
+          <p class="text-center text-gray-600 mt-4">
+            Don't have an account? 
+            <a href="/auth/register/" class="text-blue-500 hover:text-blue-700">Register here</a>
+          </p>
+        </form>
       </section>
-
     </main>
+
   </body>
 
 </html>

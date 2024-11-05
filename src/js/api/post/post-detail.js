@@ -73,34 +73,36 @@ async function renderPostDetails() {
 
         const postHtml = `
 
-        <div class="post-detail-content">
+<div class="post-detail-content bg-white p-6 rounded-lg shadow-md space-y-4">
+    <h2 class="text-3xl font-bold text-gray-800 mb-2">${post.title || 'Untitled'}</h2>
 
-            <h2>${post.title || 'Untitled'}</h2>
-    
-            <div class="post-creater">
-                <h3><a href="/profile/single-profile/index.html?name=${encodeURIComponent(post.author.name)}">${username}</a></h3>
-            </div>
-    
-            <p>${post.body || 'No content available.'}</p>
-    
-            <div class="post-media">
-                ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" />` : ''}
-            </div>
-    
-            <div class="post-tags">
-                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-            </div>
+    <div class="post-creater text-gray-600 text-sm">
+        <h3>
+            <a href="/profile/single-profile/index.html?name=${encodeURIComponent(post.author.name)}" class="text-blue-500 hover:underline">${username}</a>
+        </h3>
+    </div>
 
-            <div class="post-dates">
-                <p>Created: ${new Date(post.created).toLocaleDateString()}</p>
-                ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
-            </div>
-            
-            <div class="post-meta">
-                <p>Comments: ${commentsCount}</p>
-                <p>Reactions: ${reactionsCount}</p>
-            </div>
-        </div>
+    <p class="text-gray-700 text-base">${post.body || 'No content available.'}</p>
+
+    <div class="post-media my-4">
+        ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" class="w-full rounded-lg shadow-md" />` : ''}
+    </div>
+
+    <div class="post-tags flex flex-wrap space-x-2 text-sm text-gray-600">
+        ${post.tags.map(tag => `<span class="tag bg-gray-200 px-2 py-1 rounded-full">${tag}</span>`).join(' ')}
+    </div>
+
+    <div class="post-dates text-sm text-gray-500 mt-4">
+        <p>Created: ${new Date(post.created).toLocaleDateString()}</p>
+        ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
+    </div>
+
+    <div class="post-meta flex space-x-4 text-gray-600 text-sm mt-4">
+        <p>Comments: ${commentsCount}</p>
+        <p>Reactions: ${reactionsCount}</p>
+    </div>
+</div>
+
     `;
     
         postDetailContainer.innerHTML = postHtml;

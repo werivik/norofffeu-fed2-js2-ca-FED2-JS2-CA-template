@@ -6,50 +6,47 @@
     <title>Noroff FED2 JS2 CA</title>
 
     <script type="module" src="/src/js/api/post/create.js" defer></script>
-    <link rel="stylesheet" href="/src/css/profile.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
   
   </head>
-  <body>
+  <body class="flex items-center justify-center min-h-screen bg-gray-300">
 
-    <main>
+    <main class="flex flex-col items-center p-6 bg-gray-100 rounded shadow-md w-full max-w-xs">
+        <section class="flex flex-col w-full">
+            <h1 class="text-2xl font-bold mb-4 text-center">Create Post</h1>
 
-      <section class="create-post">
+            <form id="postForm" name="createPost" class="flex flex-col space-y-4 w-full">
+                <div class="flex flex-col space-y-2">
+                    <label for="postTitle" class="text-gray-700">Title:</label>
+                    <input type="text" id="postTitle" name="title" required class="px-3 py-2 border rounded w-full" />
+                </div>
 
-        <h1>Create Post</h1>
+                <div class="flex flex-col space-y-2 body-text">
+                    <label for="postBody" class="text-gray-700">Text:</label>
+                    <textarea id="postBody" name="body" rows="4" class="px-3 py-2 border rounded w-full"></textarea>
+                </div>
 
-        <form id="postForm" name="createPost">
+                <div class="flex flex-col space-y-2">
+                    <label for="postTags" class="text-gray-700">#Hashtags:</label>
+                    <input type="text" id="postTags" name="tags" class="px-3 py-2 border rounded w-full" />
+                </div>
 
-          <div>
-            <label for="postTitle">Title:</label>
-            <input type="text" id="postTitle" name="title" required />
-          </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="postMediaUrl" class="text-gray-700">Image URL:</label>
+                    <input type="url" id="postMediaUrl" name="mediaUrl" class="px-3 py-2 border rounded w-full" />
+                </div>
 
-          <div class="body-text">
-            <label for="postBody">Text:</label>
-            <textarea id="postBody" name="body" rows="4" cols="50"></textarea>
-          </div>
+                <div class="flex flex-col space-y-2">
+                    <label for="postMediaAlt" class="text-gray-700">Image Alt Text:</label>
+                    <input type="text" id="postMediaAlt" name="mediaAlt" class="px-3 py-2 border rounded w-full" />
+                </div>
 
-          <div>
-            <label for="postTags">#Hashtags</label>
-            <input type="text" id="postTags" name="tags" />
-          </div>
-
-          <div>
-            <label for="postMediaUrl">Image URL:</label>
-            <input type="url" id="postMediaUrl" name="mediaUrl" />
-          </div>
-
-          <div>
-            <label for="postMediaAlt">Image Alt Text:</label>
-            <input type="text" id="postMediaAlt" name="mediaAlt" />
-          </div>
-
-          <button type="submit">Submit</button>
-
-        </form>
-
-      </section>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 w-full">Submit</button>
+            </form>
+        </section>
     </main>
 
   </body>
+  
 </html>

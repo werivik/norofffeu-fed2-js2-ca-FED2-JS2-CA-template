@@ -8,38 +8,45 @@
 
     <script type="module" src="/src/js/api/auth/register.js" defer></script>
 
-    <link rel="stylesheet" href="/src/css/style.css"> 
+    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
 
-  <body>
+  <body class="flex items-center justify-center min-h-screen bg-gray-300">
 
-    <main>
-
-      <section>
-  
-        <div class="registerform">
-          <h1>Register</h1>
-  
-          <form id="registerForm">
+    <main class="flex flex-col items-center p-6 bg-gray-100 rounded shadow-md w-full max-w-xs">
+      <section class="flex flex-col w-full">
+        <h1 class="text-2xl font-bold mb-4 text-center">Register</h1>
         
-            <label for="name">Username:</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        
-            <button type="submit">Register</button>
-          </div>
+        <form id="registerForm" class="flex flex-col space-y-4 w-full">
           
-            <p>Already have a user? <a href="/auth/login/index.html">Login here</a></p>
-          </form>
-  
+          <div class="flex flex-col space-y-2">
+            <label for="name" class="text-gray-700">Username</label>
+            <input type="text" id="name" name="name" required class="px-3 py-2 border rounded w-full" />
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <label for="email" class="text-gray-700">Email</label>
+            <input type="email" id="email" name="email" required class="px-3 py-2 border rounded w-full" />
+          </div>
+
+          <div class="flex flex-col space-y-2">
+            <label for="password" class="text-gray-700">Password</label>
+            <input type="password" id="password" name="password" required class="px-3 py-2 border rounded w-full" />
+          </div>
+
+          <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 w-full">
+            Register
+          </button>
+
+          <p class="text-center text-gray-600 mt-4">
+            Already have a user? 
+            <a href="/auth/login/index.html" class="text-blue-500 hover:text-blue-700">Login here</a>
+          </p>
+          
+        </form>
       </section>
-  
     </main>
+    
   </body>
 </html>

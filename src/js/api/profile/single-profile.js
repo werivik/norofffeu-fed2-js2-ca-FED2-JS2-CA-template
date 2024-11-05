@@ -112,23 +112,20 @@ async function renderProfile() {
         const profileHtml = `
 
             <div class="profile-content">
-            
-                <div class="profile-banner">
-                    ${profile.banner ? `<img src="${profile.banner.url}" alt="${profile.banner.alt}" />` : 'No banner available'}
+                <div class="profile-banner mb-4">
+                    ${profile.banner ? `<img src="${profile.banner.url}" alt="${profile.banner.alt}" class="rounded-lg w-full" />` : 'No banner available'}
                 </div>
-
-                <div class="profile-name-avatar">
-                <div class="profile-avatar">
-                    ${profile.avatar ? `<img src="${profile.avatar.url}" alt="${profile.avatar.alt}" />` : 'No avatar available'}
+                <div class="profile-name-avatar flex items-center mb-4">
+                    <div class="profile-avatar">
+                        ${profile.avatar ? `<img src="${profile.avatar.url}" alt="${profile.avatar.alt}" class="w-16 h-16 rounded-full" />` : 'No avatar available'}
+                    </div>
+                    <h2 class="text-xl font-semibold ml-4">${profile.name || 'No name available'}</h2>
                 </div>
-                    <h2>${profile.name || 'No name available'}</h2>
-                </div>
-
-                <p>${profile.bio || 'No bio available.'}</p>
-                <p>Email: ${profile.email || 'No email available.'}</p>
-                <p>Posts: ${profile._count ? profile._count.posts : 0}</p>
-                <p>Followers: ${profile._count ? profile._count.followers : 0}</p>
-                <p>Following: ${profile._count ? profile._count.following : 0}</p>
+                <p class="text-gray-700">${profile.bio || 'No bio available.'}</p>
+                <p>Email: <span class="font-semibold">${profile.email || 'No email available.'}</span></p>
+                <p>Posts: <span class="font-semibold">${profile._count ? profile._count.posts : 0}</span></p>
+                <p>Followers: <span class="font-semibold">${profile._count ? profile._count.followers : 0}</span></p>
+                <p>Following: <span class="font-semibold">${profile._count ? profile._count.following : 0}</span></p>
             </div>
         `;
 
@@ -142,14 +139,16 @@ async function renderProfile() {
         }
 
         const postsHtml = posts.map(post => `
-            <div class="post" id="post-${post.id}">
-                <h3><a href="/post/single-post/index.html?id=${post.id}">${post.title || 'No title available'}</a></h3>
+            <div class="post mb-4 p-4 border rounded shadow">
+                <h3 class="text-lg font-semibold">
+                    <a href="/post/single-post/index.html?id=${post.id}" class="text-blue-600 hover:underline">${post.title || 'No title available'}</a>
+                </h3>
                 <p>${post.body || 'No content available.'}</p>
-                <div class="post-media">
-                    ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" />` : 'No media available'}
+                <div class="post-media my-2">
+                    ${post.media ? `<img src="${post.media.url}" alt="${post.media.alt}" class="w-full rounded" />` : 'No media available'}
                 </div>
-                <p>Created: ${post.created ? new Date(post.created).toLocaleDateString() : 'No date available'}</p>
-                ${post.updated ? `<p>Updated: ${new Date(post.updated).toLocaleDateString()}</p>` : ''}
+                <p>Created: <span class="font-semibold">${post.created ? new Date(post.created).toLocaleDateString() : 'No date available'}</span></p>
+                ${post.updated ? `<p>Updated: <span class="font-semibold">${new Date(post.updated).toLocaleDateString()}</span></p>` : ''}
             </div>
         `).join('');
 

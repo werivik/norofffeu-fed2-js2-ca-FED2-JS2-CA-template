@@ -8,27 +8,23 @@
 
     <script type="module" src="/src/js/api/post/post-detail.js"></script>
 
-    <link rel="stylesheet" href="/src/css/post-detail.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
   </head>
 
-  <body>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <main class="w-full max-w-5xl p-6 bg-white rounded-lg shadow-md space-y-6">
+        <section class="space-y-4">
+            <h1 class="text-3xl font-bold text-gray-800 text-center">Post Detail</h1>
 
-    <main>
+            <a href="javascript:void(0);" onclick="history.back();" class="text-blue-500 hover:text-blue-700 inline-block">
+                &larr; Go Back
+            </a>
 
-      <section>
-
-        <h1>Post Detail</h1>
-
-        <a href="javascript:void(0);" onclick="history.back();">Go Back</a>
-
-        <div class="post-detail">
-        </div>
-
-      </section>
-      
+            <div class="post-detail bg-gray-50 p-6 rounded-lg shadow-inner space-y-4">
+            </div>
+        </section>
     </main>
-
-  </body>
+ </body>
 
 </html>

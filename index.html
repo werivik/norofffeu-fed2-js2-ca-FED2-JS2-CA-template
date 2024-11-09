@@ -3,27 +3,27 @@
 
 <head>
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Noroff FED2 JS2 CA</title>
   <script type="module" src="/src/app.js"></script>
-  <link rel="stylesheet" href="/src/css/style.css"> 
+  <link rel="stylesheet" href="/src/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-  <main>
-    <section class="homepage">
-      
-      <img src="/images/noroff-logo.png" alt="Noroff Logo" />
+<body class="bg-[#ECF0F6] flex items-center justify-center min-h-screen">
 
-      <h1>Home</h1>
+  <main class="w-full max-w-xs p-6 bg-gray-100 rounded-lg shadow-md flex flex-col items-center">
+    <img src="/images/noroff-logo.png" alt="Noroff Logo" class="w-32 h-auto mb-6" />
 
-      <div class="login-options">
-        <a href="/auth/login/">Login</a>
-        <a href="/auth/register/">Register</a>
-      </div>
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Home</h1>
 
-    </section>
+    <div class="flex flex-col items-center space-y-4 w-full">
+      <a href="/auth/login/" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 w-full text-center">Login</a>
+      <span class="text-gray-600">or</span>
+      <a href="/auth/register/" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700 w-full text-center">Register</a>
+    </div>
   </main>
+
 </body>
+
 </html>
